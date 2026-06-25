@@ -1,6 +1,6 @@
-# AeroTracker
+# Aerolog
 
-An Android app for model rocketry enthusiasts to log launches, capture launch-site data, and get an automatic post-flight readout on how each flight went. Every launch records its motor, location, altitude, and recovery condition, and AeroTracker analyzes that data on-device to flag issues like steep launch angles or underperforming altitude.
+An Android app for model rocketry enthusiasts to log launches, capture launch-site data, and get an automatic post-flight readout on how each flight went. Every launch records its motor, location, altitude, and recovery condition, and Aerolog analyzes that data on-device to flag issues like steep launch angles or underperforming altitude.
 
 ## Features
 

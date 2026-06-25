@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.aerotracker.fragment.LoginFragment"
-        android:label="AeroTracker"
+        android:label="Aerolog"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_login_to_history"

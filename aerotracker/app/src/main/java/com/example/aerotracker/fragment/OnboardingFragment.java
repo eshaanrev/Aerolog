@@ -43,7 +43,7 @@ public class OnboardingFragment extends Fragment {
         OnboardingAdapter.Page[] pages = new OnboardingAdapter.Page[]{
                 new OnboardingAdapter.Page(R.drawable.ic_rocket,
                         "Log Every Flight",
-                        "AeroTracker is your model rocketry flight log. Record rocket, motor, altitude, "
+                        "Aerolog is your model rocketry flight log. Record rocket, motor, altitude, "
                                 + "duration, recovery and photos for every launch — then get an instant "
                                 + "analysis of how the flight went."),
                 new OnboardingAdapter.Page(R.drawable.ic_location,

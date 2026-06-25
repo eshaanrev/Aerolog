@@ -1,6 +1,6 @@
 rules_version = '2';
 
-// AeroTracker Firestore security rules.
+// Aerolog Firestore security rules.
 //
 // Every launch lives under users/{userId}/launches/{launchId}. A signed-in user
 // may read and write ONLY documents nested under their own user id; no user can
