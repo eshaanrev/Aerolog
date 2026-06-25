@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "853981337715",
+    "project_id": "aerotracker-01",
+    "storage_bucket": "aerotracker-01.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853981337715:android:87d9167e62896fd8c7f206",
+        "android_client_info": {
+          "package_name": "com.example.aerotracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCNNEphPjLUR4lcYLhvXFiZOJUCE-nxh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

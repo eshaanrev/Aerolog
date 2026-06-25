@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="color_primary">#FFFF1744</color>
+    <color name="color_on_primary">#FFFFFFFF</color>
+    <color name="color_primary_container">#FF5F0010</color>
+
+    <color name="color_secondary">#FF2979FF</color>
+    <color name="color_on_secondary">#FFFFFFFF</color>
+    <color name="color_secondary_container">#FF003CB5</color>
+
+    <color name="color_background">#FF000000</color>
+    <color name="color_surface">#FF141414</color>
+    <color name="color_surface_variant">#FF1E1E1E</color>
+    <color name="color_outline">#FF2E2E2E</color>
+
+    <color name="success_green">#FF4CAF50</color>
+    <color name="partial_orange">#FFFF9800</color>
+    <color name="secondary_text">#FF9E9E9E</color>
+    <color name="data_blue">#FF2979FF</color>
+
+    <!-- Semantic aliases used across the modernized UI. Values mirror the brand
+         palette above so existing Java color references stay valid. -->
+    <color name="color_text_primary">#FFFFFFFF</color>
+    <color name="color_text_secondary">#FF9E9E9E</color>
+    <color name="color_accent">#FF2979FF</color>
+    <color name="color_success">#FF4CAF50</color>
+    <color name="color_badge_partial">#FFFF9800</color>
+    <color name="color_error">#FFFF1744</color>
+
+    <!-- Subtle ripple over dark surfaces -->
+    <color name="ripple_light">#22FFFFFF</color>
+</resources>

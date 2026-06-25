@@ -1,0 +1,3 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Dark theme is the only theme; no separate night override needed -->
+</resources>

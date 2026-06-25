@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/launches_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/list_top_padding"
+            android:paddingBottom="@dimen/list_bottom_padding" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/history_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        app:indicatorColor="@color/color_primary" />
+
+    <!-- Empty state: shown when the user has no launches yet -->
+    <LinearLayout
+        android:id="@+id/empty_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="@dimen/space_40"
+        android:paddingEnd="@dimen/space_40"
+        android:paddingTop="@dimen/space_24"
+        android:paddingBottom="@dimen/space_24"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/empty_icon"
+            android:layout_width="@dimen/empty_icon_size"
+            android:layout_height="@dimen/empty_icon_size"
+            android:src="@drawable/ic_rocket"
+            android:alpha="0.85"
+            android:contentDescription="Rocket illustration"
+            android:layout_marginBottom="@dimen/space_24" />
+
+        <TextView
+            android:id="@+id/empty_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No launches yet"
+            android:textSize="@dimen/text_size_headline"
+            android:textStyle="bold"
+            android:textColor="@color/color_text_primary"
+            android:layout_marginBottom="@dimen/space_8" />
+
+        <TextView
+            android:id="@+id/empty_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your flight log is empty. Head out to the field and record your first rocket launch — GPS, angle, photo and all."
+            android:textSize="@dimen/text_size_button"
+            android:textColor="@color/color_text_secondary"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/space_3"
+            android:layout_marginBottom="@dimen/space_24" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/empty_create_btn"
+            style="@style/Widget.Aerotracker.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log Your First Launch" />
+
+    </LinearLayout>
+
+    <!-- First-visit inline tip pointing at the FAB -->
+    <TextView
+        android:id="@+id/fab_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/space_20"
+        android:layout_marginBottom="@dimen/list_bottom_padding"
+        android:text="Tap + to log a new launch ↘"
+        android:textSize="@dimen/text_size_body"
+        android:textColor="@color/color_text_primary"
+        android:background="@drawable/tip_background"
+        android:paddingStart="@dimen/space_14"
+        android:paddingEnd="@dimen/space_14"
+        android:paddingTop="@dimen/space_10"
+        android:paddingBottom="@dimen/space_10"
+        android:visibility="gone" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_new_launch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:elevation="@dimen/fab_elevation"
+        app:backgroundTint="@color/color_primary"
+        app:tint="@color/white"
+        android:contentDescription="Create a new launch"
+        app:srcCompat="@drawable/ic_add" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

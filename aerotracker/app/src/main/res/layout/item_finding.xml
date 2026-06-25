@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  One analysis finding inside the Launch Analysis card: its own card with a
+  severity strip (color set in NewLaunchFragment), a warning icon, a short
+  plain-language title, and the likely-cause explanation beneath it.
+-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_8"
+    app:cardBackgroundColor="@color/color_surface_variant"
+    app:cardCornerRadius="@dimen/button_corner_radius"
+    app:cardElevation="@dimen/inset_none"
+    app:strokeColor="@color/color_outline"
+    app:strokeWidth="@dimen/card_stroke_width">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="@dimen/touch_target_min">
+
+        <!-- Severity strip: red for major, orange for minor (set in code). -->
+        <View
+            android:id="@+id/finding_severity_strip"
+            android:layout_width="@dimen/accent_strip_width"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/space_40"
+            android:background="@color/partial_orange" />
+
+        <ImageView
+            android:layout_width="@dimen/finding_icon_size"
+            android:layout_height="@dimen/finding_icon_size"
+            android:src="@drawable/ic_warning"
+            app:tint="@color/color_text_secondary"
+            android:contentDescription="@null"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_12"
+            android:layout_marginEnd="@dimen/space_10" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/space_12"
+            android:paddingBottom="@dimen/space_12"
+            android:paddingEnd="@dimen/space_12">
+
+            <TextView
+                android:id="@+id/finding_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_body"
+                android:textStyle="bold"
+                android:textColor="@color/color_text_primary" />
+
+            <TextView
+                android:id="@+id/finding_explanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_2"
+                android:textSize="@dimen/text_size_badge"
+                android:textColor="@color/color_text_secondary"
+                android:lineSpacingExtra="@dimen/space_2" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_sort"
+        android:icon="@drawable/ic_sort"
+        android:title="Sort and filter launches"
+        app:showAsAction="always">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/sort_newest"
+                    android:title="Newest first"
+                    android:checked="true" />
+                <item
+                    android:id="@+id/sort_oldest"
+                    android:title="Oldest first" />
+                <item
+                    android:id="@+id/sort_altitude"
+                    android:title="Highest altitude" />
+            </group>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/filter_all"
+                    android:title="Show all outcomes"
+                    android:checked="true" />
+                <item
+                    android:id="@+id/filter_success"
+                    android:title="Success only" />
+                <item
+                    android:id="@+id/filter_partial"
+                    android:title="Partial only" />
+                <item
+                    android:id="@+id/filter_failed"
+                    android:title="Failed only" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="Profile and settings"
+        app:showAsAction="always" />
+</menu>

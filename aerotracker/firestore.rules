@@ -1,0 +1,53 @@
+rules_version = '2';
+
+// AeroTracker Firestore security rules.
+//
+// Every launch lives under users/{userId}/launches/{launchId}. A signed-in user
+// may read and write ONLY documents nested under their own user id; no user can
+// see or modify another user's flight log, and unauthenticated clients are
+// denied everything.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // The owning user has full read/write over their own subtree.
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+
+      match /launches/{launchId} {
+        // Reads and deletes only require ownership.
+        allow read, delete: if isOwner(userId);
+        // Creates and updates additionally validate the document shape so a
+        // malformed or oversized launch can't be written.
+        allow create, update: if isOwner(userId) && isValidLaunch(request.resource.data);
+      }
+    }
+
+    // Anything not matched above is denied by default.
+
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    // Enforces the required fields, their types, and sane bounds. Optional
+    // string fields are allowed to be missing but must be strings when present.
+    function isValidLaunch(data) {
+      return data.rocketName is string
+          && data.rocketName.size() > 0
+          && data.rocketName.size() <= 100
+          && data.outcome in ['Success', 'Partial', 'Failed']
+          && data.maxAltitude is number
+          && data.maxAltitude >= 0
+          && data.latitude is number
+          && data.longitude is number
+          && data.elevation is number
+          && data.launchAngle is number
+          && (!('motorType' in data) || data.motorType is string)
+          && (!('photoUrl' in data) || data.photoUrl is string)
+          && (!('weatherNotes' in data) || data.weatherNotes is string)
+          && (!('flightDuration' in data) || data.flightDuration is string)
+          && (!('recoveryCondition' in data) || data.recoveryCondition is string)
+          && (!('notes' in data) || data.notes is string)
+          && (!('locationString' in data) || data.locationString is string);
+    }
+  }
+}

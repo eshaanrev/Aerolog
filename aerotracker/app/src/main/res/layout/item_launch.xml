@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Aerotracker.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/screen_margin"
+    android:layout_marginEnd="@dimen/screen_margin"
+    android:layout_marginTop="@dimen/card_gap"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Outcome-colored accent strip (color set in LaunchAdapter). -->
+        <View
+            android:id="@+id/accent_strip"
+            android:layout_width="@dimen/card_accent_strip_width"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/space_64" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <!-- Row 1: rocket name + status badge -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/rocket_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text_size_list_title"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_text_primary"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_marginEnd="@dimen/space_8" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/outcome_chip"
+                    style="@style/Widget.Aerotracker.Badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Row 2: motor type · date -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/space_4">
+
+                <TextView
+                    android:id="@+id/motor_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_badge"
+                    android:textColor="@color/color_text_secondary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" · "
+                    android:textSize="@dimen/text_size_badge"
+                    android:textColor="@color/color_text_secondary" />
+
+                <TextView
+                    android:id="@+id/launch_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text_size_badge"
+                    android:textColor="@color/color_text_secondary" />
+            </LinearLayout>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/space_12"
+                android:layout_marginBottom="@dimen/space_10"
+                android:background="@color/color_outline" />
+
+            <!-- Row 3: location (with pin) + altitude -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/finding_icon_size"
+                    android:layout_height="@dimen/finding_icon_size"
+                    android:src="@drawable/ic_location"
+                    app:tint="@color/color_text_secondary"
+                    android:contentDescription="Launch location"
+                    android:layout_marginEnd="@dimen/space_6" />
+
+                <TextView
+                    android:id="@+id/launch_location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/text_size_badge"
+                    android:textColor="@color/color_text_secondary"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_marginEnd="@dimen/space_8" />
+
+                <TextView
+                    android:id="@+id/max_altitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_list_value"
+                    android:textStyle="bold"
+                    android:textColor="@color/data_blue" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

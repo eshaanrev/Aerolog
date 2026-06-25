@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Maps the directory where NewLaunchFragment writes camera temp photos
+    (getExternalFilesDir(Environment.DIRECTORY_PICTURES), i.e. .../files/Pictures)
+    so the FileProvider authority above can hand a content:// URI to the camera app.
+-->
+<paths>
+    <external-files-path name="launch_photos" path="Pictures" />
+</paths>

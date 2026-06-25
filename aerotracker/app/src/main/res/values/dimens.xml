@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================ Spacing scale ============================ -->
+    <dimen name="space_0">0dp</dimen>
+    <dimen name="space_2">2dp</dimen>
+    <dimen name="space_3">3dp</dimen>
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_6">6dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_10">10dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_14">14dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_28">28dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+    <dimen name="space_40">40dp</dimen>
+    <dimen name="space_48">48dp</dimen>
+    <dimen name="space_64">64dp</dimen>
+
+    <!-- ============================ Semantic spacing ========================= -->
+    <dimen name="screen_margin">16dp</dimen>
+    <dimen name="card_gap">10dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="section_gap">24dp</dimen>
+    <dimen name="label_value_gap">4dp</dimen>
+    <dimen name="inset_none">0dp</dimen>
+
+    <!-- ============================ Components =============================== -->
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_stroke_width">1dp</dimen>
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <dimen name="button_corner_radius">8dp</dimen>
+    <dimen name="button_min_height">48dp</dimen>
+    <dimen name="field_corner_radius">8dp</dimen>
+    <dimen name="touch_target_min">48dp</dimen>
+
+    <dimen name="badge_corner_radius">20dp</dimen>
+    <dimen name="badge_padding_h">12dp</dimen>
+    <dimen name="badge_padding_v">4dp</dimen>
+    <dimen name="badge_min_height">28dp</dimen>
+
+    <dimen name="accent_strip_width">3dp</dimen>
+    <dimen name="accent_strip_height">18dp</dimen>
+    <dimen name="card_accent_strip_width">4dp</dimen>
+    <dimen name="header_icon_size">20dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+
+    <!-- ============================ Screen specifics ======================== -->
+    <dimen name="avatar_size">64dp</dimen>
+    <dimen name="avatar_icon_padding">14dp</dimen>
+    <dimen name="photo_height">200dp</dimen>
+    <dimen name="photo_placeholder_height">160dp</dimen>
+    <dimen name="onboarding_icon_size">120dp</dimen>
+    <dimen name="empty_icon_size">96dp</dimen>
+    <dimen name="login_logo_size">72dp</dimen>
+    <dimen name="logo_underline_width">48dp</dimen>
+    <dimen name="logo_underline_height">3dp</dimen>
+    <dimen name="list_top_padding">8dp</dimen>
+    <dimen name="list_bottom_padding">96dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="gps_label_width">96dp</dimen>
+    <dimen name="finding_icon_size">18dp</dimen>
+
+    <!-- ============================ Typography ============================== -->
+    <dimen name="text_size_headline">24sp</dimen>
+    <dimen name="text_size_section">18sp</dimen>
+    <dimen name="text_size_card_title">15sp</dimen>
+    <dimen name="text_size_body">13sp</dimen>
+    <dimen name="text_size_caption">11sp</dimen>
+    <dimen name="text_size_button">14sp</dimen>
+    <dimen name="text_size_badge">12sp</dimen>
+    <dimen name="text_size_verdict">16sp</dimen>
+    <dimen name="text_size_logo">36sp</dimen>
+    <dimen name="text_size_value_large">32sp</dimen>
+    <dimen name="text_size_list_title">15sp</dimen>
+    <dimen name="text_size_list_value">14sp</dimen>
+</resources>

@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_margin"
+            android:paddingEnd="@dimen/screen_margin"
+            android:paddingTop="@dimen/screen_margin"
+            android:paddingBottom="@dimen/space_24">
+
+            <!-- GPS Location card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Aerotracker.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_gap">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/space_12">
+                        <ImageView
+                            android:layout_width="@dimen/header_icon_size"
+                            android:layout_height="@dimen/header_icon_size"
+                            android:src="@drawable/ic_location"
+                            app:tint="@color/color_accent"
+                            android:contentDescription="@null"
+                            android:layout_marginEnd="@dimen/space_10" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GPS Location"
+                            android:textAppearance="@style/TextAppearance.Aerotracker.CardTitle" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/gps_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="Tip: your launch site is captured automatically via GPS — no typing needed. This is optional; you can save without it."
+                        android:textSize="@dimen/text_size_badge"
+                        android:textStyle="italic"
+                        android:textColor="@color/color_accent"
+                        android:layout_marginBottom="@dimen/space_10" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/gps_progress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:indeterminate="true"
+                        android:visibility="gone"
+                        app:indicatorColor="@color/color_primary"
+                        android:layout_marginBottom="@dimen/space_10" />
+
+                    <TextView
+                        android:id="@+id/gps_status_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:textSize="@dimen/text_size_badge"
+                        android:textColor="@color/color_text_secondary"
+                        android:layout_marginBottom="@dimen/space_10" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/grant_location_btn"
+                        style="@style/Widget.Aerotracker.Button.Outline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="Grant Location Access"
+                        android:layout_marginBottom="@dimen/space_10" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/space_6">
+                        <TextView
+                            android:layout_width="@dimen/gps_label_width"
+                            android:layout_height="wrap_content"
+                            android:text="Latitude"
+                            android:textSize="@dimen/text_size_badge"
+                            android:textColor="@color/color_text_secondary" />
+                        <TextView
+                            android:id="@+id/latitude_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="—"
+                            android:textColor="@color/data_blue"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_body" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/space_6">
+                        <TextView
+                            android:layout_width="@dimen/gps_label_width"
+                            android:layout_height="wrap_content"
+                            android:text="Longitude"
+                            android:textSize="@dimen/text_size_badge"
+                            android:textColor="@color/color_text_secondary" />
+                        <TextView
+                            android:id="@+id/longitude_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="—"
+                            android:textColor="@color/data_blue"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_body" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="@dimen/gps_label_width"
+                            android:layout_height="wrap_content"
+                            android:text="Elevation"
+                            android:textSize="@dimen/text_size_badge"
+                            android:textColor="@color/color_text_secondary" />
+                        <TextView
+                            android:id="@+id/elevation_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="—"
+                            android:textColor="@color/data_blue"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_body" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Launch Angle card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Aerotracker.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_gap">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/space_12">
+                        <ImageView
+                            android:layout_width="@dimen/header_icon_size"
+                            android:layout_height="@dimen/header_icon_size"
+                            android:src="@drawable/ic_compass"
+                            app:tint="@color/color_accent"
+                            android:contentDescription="@null"
+                            android:layout_marginEnd="@dimen/space_10" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Launch Angle"
+                            android:textAppearance="@style/TextAppearance.Aerotracker.CardTitle" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/angle_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="Tip: hold your phone flat against the launch rod, tap Measure Angle, then Lock Angle. Optional — 0° means straight up."
+                        android:textSize="@dimen/text_size_badge"
+                        android:textStyle="italic"
+                        android:textColor="@color/color_accent"
+                        android:layout_marginBottom="@dimen/space_10" />
+
+                    <TextView
+                        android:id="@+id/angle_status_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:textSize="@dimen/text_size_badge"
+                        android:textColor="@color/color_text_secondary"
+                        android:layout_marginBottom="@dimen/space_10" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/angle_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="—"
+                            android:textSize="@dimen/text_size_value_large"
+                            android:textStyle="bold"
+                            android:textColor="@color/data_blue" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/measure_angle_btn"
+                            style="@style/Widget.Aerotracker.Button.Outline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Measure Angle" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Launch Photo card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Aerotracker.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_gap">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/space_12">
+                        <ImageView
+                            android:layout_width="@dimen/header_icon_size"
+                            android:layout_height="@dimen/header_icon_size"
+                            android:src="@drawable/ic_camera"
+                            app:tint="@color/color_accent"
+                            android:contentDescription="@null"
+                            android:layout_marginEnd="@dimen/space_10" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Launch Photo"
+                            android:textAppearance="@style/TextAppearance.Aerotracker.CardTitle" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/photo_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="Tip: attach a photo of the rocket or flight — it's stored with the launch in your account. Optional."
+                        android:textSize="@dimen/text_size_badge"
+                        android:textStyle="italic"
+                        android:textColor="@color/color_accent"
+                        android:layout_marginBottom="@dimen/space_10" />
+
+                    <ImageView
+                        android:id="@+id/photo_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/photo_height"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone"
+                        android:layout_marginBottom="@dimen/space_12"
+                        android:background="@color/color_surface_variant"
+                        android:contentDescription="Photo of this launch" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/add_photo_btn"
+                        style="@style/Widget.Aerotracker.Button.Outline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Add Photo"
+                        app:icon="@drawable/ic_camera"
+                        app:iconGravity="textStart" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Pre-Flight card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Aerotracker.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_gap">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/space_16">
+                        <View
+                            android:layout_width="@dimen/accent_strip_width"
+                            android:layout_height="@dimen/accent_strip_height"
+                            android:background="@color/color_primary"
+                            android:layout_marginEnd="@dimen/space_10" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pre-Flight"
+                            android:textAppearance="@style/TextAppearance.Aerotracker.CardTitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/rocket_name_layout"
+                        style="@style/Widget.Aerotracker.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Rocket Name"
+                        app:errorEnabled="true"
+                        android:layout_marginBottom="@dimen/space_12">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/rocket_name_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/touch_target_min"
+                            android:inputType="textCapWords" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Aerotracker.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Motor Type (e.g. C6-5)"
+                        android:layout_marginBottom="@dimen/space_12">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/motor_type_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/touch_target_min"
+                            android:inputType="textCapCharacters" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Aerotracker.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Weather Notes">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/weather_notes_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/touch_target_min"
+                            android:inputType="textMultiLine"
+                            android:minLines="2"
+                            android:gravity="top" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Post-Flight card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Aerotracker.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_gap">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/space_16">
+                        <View
+                            android:layout_width="@dimen/accent_strip_width"
+                            android:layout_height="@dimen/accent_strip_height"
+                            android:background="@color/color_primary"
+                            android:layout_marginEnd="@dimen/space_10" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Post-Flight"
+                            android:textAppearance="@style/TextAppearance.Aerotracker.CardTitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/max_altitude_layout"
+                        style="@style/Widget.Aerotracker.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Max Altitude (ft)"
+                        app:errorEnabled="true"
+                        android:layout_marginBottom="@dimen/space_12">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/max_altitude_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/touch_target_min"
+                            android:inputType="numberDecimal" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Aerotracker.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Flight Duration (e.g. 45s)"
+                        android:layout_marginBottom="@dimen/space_12">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/flight_duration_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/touch_target_min"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Aerotracker.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Recovery Condition"
+                        android:layout_marginBottom="@dimen/space_12">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/recovery_condition_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/touch_target_min"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Aerotracker.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Notes">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/notes_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/touch_target_min"
+                            android:inputType="textMultiLine"
+                            android:minLines="3"
+                            android:gravity="top" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Outcome card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Aerotracker.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_gap">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/space_12">
+                        <View
+                            android:layout_width="@dimen/accent_strip_width"
+                            android:layout_height="@dimen/accent_strip_height"
+                            android:background="@color/color_primary"
+                            android:layout_marginEnd="@dimen/space_10" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Outcome"
+                            android:textAppearance="@style/TextAppearance.Aerotracker.CardTitle" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/outcome_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/success_radio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/touch_target_min"
+                            android:text="Success"
+                            android:textColor="@color/color_text_primary"
+                            android:checked="true"
+                            android:layout_marginEnd="@dimen/space_20" />
+
+                        <RadioButton
+                            android:id="@+id/partial_radio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/touch_target_min"
+                            android:text="Partial"
+                            android:textColor="@color/color_text_primary"
+                            android:layout_marginEnd="@dimen/space_20" />
+
+                        <RadioButton
+                            android:id="@+id/failed_radio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/touch_target_min"
+                            android:textColor="@color/color_text_primary"
+                            android:text="Failed" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Launch Analysis card (detail view only) — sits below all sections. -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/analysis_card"
+                style="@style/Widget.Aerotracker.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_14"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/space_14">
+                        <ImageView
+                            android:layout_width="@dimen/header_icon_size"
+                            android:layout_height="@dimen/header_icon_size"
+                            android:src="@drawable/ic_chart"
+                            app:tint="@color/color_accent"
+                            android:contentDescription="@null"
+                            android:layout_marginEnd="@dimen/space_10" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Launch Analysis"
+                            android:textAppearance="@style/TextAppearance.Aerotracker.CardTitle" />
+                    </LinearLayout>
+
+                    <!-- Overall verdict badge (color + text set in NewLaunchFragment). -->
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/verdict_chip"
+                        style="@style/Widget.Aerotracker.Badge.Verdict"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/space_14" />
+
+                    <!-- Nominal: checkmark + positive message (single TextView; the
+                         checkmark is a compound drawable so toggling visibility in
+                         NewLaunchFragment hides the icon and text together). -->
+                    <TextView
+                        android:id="@+id/analysis_nominal_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="All systems nominal — angle, altitude, flight time and recovery all look as expected. Great flight!"
+                        android:textSize="@dimen/text_size_body"
+                        android:textColor="@color/color_success"
+                        android:lineSpacingExtra="@dimen/space_3"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="@dimen/space_10"
+                        app:drawableStartCompat="@drawable/ic_check_circle"
+                        app:drawableTint="@color/color_success" />
+
+                    <LinearLayout
+                        android:id="@+id/findings_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Blocking overlay while photo save / Firestore write is in flight -->
+    <FrameLayout
+        android:id="@+id/saving_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:indicatorColor="@color/color_primary"
+                android:layout_marginBottom="@dimen/space_16" />
+
+            <TextView
+                android:id="@+id/saving_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saving launch…"
+                android:textSize="@dimen/text_size_button"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

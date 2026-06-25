@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/color_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/screen_margin"
+        android:paddingEnd="@dimen/screen_margin"
+        android:paddingTop="@dimen/space_32"
+        android:paddingBottom="@dimen/space_24">
+
+        <!-- Profile header -->
+        <FrameLayout
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/avatar_circle"
+            android:layout_marginBottom="@dimen/space_16">
+
+            <ImageView
+                android:layout_width="@dimen/space_32"
+                android:layout_height="@dimen/space_32"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_person"
+                app:tint="@color/white"
+                android:contentDescription="Profile avatar" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/user_email_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_button"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/color_text_secondary"
+            android:layout_marginBottom="@dimen/space_4" />
+
+        <TextView
+            android:id="@+id/member_since_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_caption"
+            android:textColor="@color/color_text_secondary"
+            android:layout_marginBottom="@dimen/space_24" />
+
+        <!-- Stat row -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Aerotracker.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_24">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/touch_target_min"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total launches"
+                    android:textSize="@dimen/text_size_body"
+                    android:textColor="@color/color_text_secondary" />
+
+                <TextView
+                    android:id="@+id/launch_count_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="@dimen/text_size_list_value"
+                    android:textStyle="bold"
+                    android:textColor="@color/data_blue" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- About -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AeroTracker v1.0 — Rocket Launch Logger.\nYour launches, photos and analysis are stored securely in your personal account."
+            android:textSize="@dimen/text_size_caption"
+            android:textColor="@color/color_text_secondary"
+            android:lineSpacingExtra="@dimen/space_3"
+            android:layout_marginBottom="@dimen/space_24" />
+
+        <!-- Divider before destructive action -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/color_outline"
+            android:layout_marginBottom="@dimen/space_8" />
+
+        <!-- Logout list item -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/logout_btn"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/touch_target_min"
+            android:text="Log Out"
+            android:textColor="@color/color_error"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_button"
+            android:gravity="start|center_vertical"
+            app:icon="@drawable/ic_logout"
+            app:iconTint="@color/color_error"
+            app:iconGravity="textStart"
+            app:rippleColor="@color/ripple_light" />
+
+    </LinearLayout>
+</ScrollView>
